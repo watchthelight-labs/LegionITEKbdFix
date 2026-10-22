@@ -1,9 +1,5 @@
 # LegionITEKbdFix
 
-> **Heads up:** a good portion of this code is AI generated. I do understand how it works,
-> and I'm happy to explain any of it. If something looks wrong or you have a question,
-> open an issue or ping me on Discord (`watchthelight`).
-
 A codeless kext (one `Info.plist`, no binary) for Lenovo Legion laptops whose internal keyboard is an ITE 8258 USB controller (`048D:C195`). The device has two HID interfaces: interface 0 is the keyboard, interface 1 is the keyboard lighting (HID usage page 0x59, LampArray). macOS's HID driver opens both and polls the lighting interface, every read fails, and after ten failures the driver resets the whole USB device, every half second or so. The keyboard enumerates but never types. This kext claims interface 1 with a plain `IOService` so Apple's HID driver never touches it, and the keyboard on interface 0 works.
 
 ## Status
