@@ -6,7 +6,7 @@ A codeless kext (one `Info.plist`, no binary) for Lenovo Legion laptops whose in
 
 | What | Tested on | Result |
 |---|---|---|
-| Internal keyboard (ITE 8258, `048D:C195`) | Legion 5 15IAX10, macOS 15.4.1 Recovery, 15.8.1 and 26.7.1 (25G241), OpenCore 1.0.8 | typing works since 2026-10-15; without the kext the keyboard enumerated and never typed |
+| Internal keyboard (ITE 8258, `048D:C195`) | Legion 5 15IAX10, macOS 15.4.1 Recovery, 15.8.1, 26.7.1 (25G241) and 26.7.2 (25G332), OpenCore 1.0.8 | typing works since 2026-10-15; without the kext the keyboard enumerated and never typed |
 
 ## What it can't do
 
