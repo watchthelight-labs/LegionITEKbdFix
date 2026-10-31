@@ -1,4 +1,6 @@
-# LegionITEKbdFix
+# WTLLegionITEKbdFix
+
+Renamed from `LegionITEKbdFix` on 2026-10-31; the kext is still `LegionITEKbdFix.kext`. Old links redirect here.
 
 A codeless kext (one `Info.plist`, no binary) for Lenovo Legion laptops whose internal keyboard is an ITE 8258 USB controller (`048D:C195`). The device has two HID interfaces: interface 0 is the keyboard, interface 1 is the keyboard lighting (HID usage page 0x59, LampArray). macOS's HID driver opens both and polls the lighting interface, every read fails, and after ten failures the driver resets the whole USB device, every half second or so. The keyboard enumerates but never types. This kext claims interface 1 with a plain `IOService` so Apple's HID driver never touches it, and the keyboard on interface 0 works.
 
@@ -27,7 +29,7 @@ A codeless kext (one `Info.plist`, no binary) for Lenovo Legion laptops whose in
    Enabled         true
    ```
 
-2. Make sure the USB port the keyboard sits on is enabled in your USB map. On the Legion 5 15IAX10 it is `HS05`, which Lenovo's firmware marks as not connectable; the `_UPC` patch for it is in [Legion-5-15IAX10-OpenCore](https://github.com/watchthelight-labs/Legion-5-15IAX10-OpenCore).
+2. Make sure the USB port the keyboard sits on is enabled in your USB map. On the Legion 5 15IAX10 it is `HS05`, which Lenovo's firmware marks as not connectable; the `_UPC` patch for it is in [WTLLegionOpenCore](https://github.com/watchthelight-labs/WTLLegionOpenCore).
 3. Reboot and check:
 
    ```
